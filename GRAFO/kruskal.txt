@@ -1,7 +1,0 @@
-graph A {
- rankdir = "LR"; 
- 	A -- D[ label = "6"];
-	B -- C[ label = "6"];
-	B -- D[ label = "7"];
-	D -- E[ label = "2"];
-}
