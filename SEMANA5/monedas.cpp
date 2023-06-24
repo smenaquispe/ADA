@@ -1,60 +1,43 @@
 #include<iostream>
 #include<vector>
 #include<math.h>
+#include<algorithm>
 using namespace std;
 
-vector<float> C = {100, 90, 1};
-
-void DevolverCambio2(int P, int n) {
-    vector<float> X;
-    float act = 0;
-
-    int j = 0;
-    while (act != P)
-    {
-        if(j == n - 1) {
-            std::cout<<"No hay  resultado poisible"<<endl;
-            return;
-        }
-
-        if(P >= C[j] - act) {
-            
-        }
-
-
+void imprimirResultado(vector<int> & monedasDisponibles, vector<int> & monedasUsadas) {
+    int total = 0;
+    std::cout<<"Monedas usadas:"<<endl;
+    for(int i = 0; i < monedasDisponibles.size(); i++) {
+        std::cout<<"Moneda: "<<monedasDisponibles[i]<<" -> cantidad: "<<monedasUsadas[i]<<endl;
+        total += monedasUsadas[i];
     }
+    std::cout<<"Total de monedas usadas: "<<total<<endl;
+}
+
+void devolverCambio(float P, vector<int> & monedasDisponibles) {
     
-}
-/*
-void DevolverCambio(int P, int C[], int X[], int n) {
-    int act = 0;
-    int j = n - 1;
+    // necesario ordenar de mayor a menor, de ser necesario
+    sort(monedasDisponibles.rbegin(), monedasDisponibles.rend());
+    
+    int cant = 0; // cantidad de monedas utilizadas
+    float rest = P; // cambio restante
 
-    for(int i = 0; i < n; i++) {
-        X[i] = 0;
+    vector<int> monedasUsadas;
+
+    for(auto & moneda : monedasDisponibles) {
+        cant = floor(rest / moneda);
+        monedasUsadas.push_back(cant);
+        rest -= cant * moneda;
     }
 
-    // P
-    while(act != P) {
-
-        while (C[j] > (P - act) && (j > 0))
-        {
-            j--;
-        }
-
-        if(j == 0) {
-            std::cout<<"No existe solución"<<endl;
-            return;
-        }
-
-        X[j] = floor((P - act) / C[j]);
-        act = act + C[j]*X[j];
-
-    }
-
+    imprimirResultado(monedasDisponibles, monedasUsadas);
 }
-*/
+
 int main() {
+
+    vector<int> monedasDisponibles = {100, 90, 1};
+
+    devolverCambio(180, monedasDisponibles);
 
     return 0;
 }
