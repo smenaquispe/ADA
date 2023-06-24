@@ -17,8 +17,11 @@ void DevolverCambio2(int P, int n) {
             return;
         }
 
+        if(P >= C[j] - act) {
+            
+        }
 
-        
+
     }
     
 }
