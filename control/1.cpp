@@ -54,10 +54,12 @@ int main () {
         }
     }
 
+    cout<<"Array: "<<endl;
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
-            cout<<A[i][j]<<endl;
+            cout<<A[i][j]<<"\t";
         }
+        cout<<endl;
     }    
 
     int a = 18;

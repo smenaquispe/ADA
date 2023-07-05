@@ -48,8 +48,11 @@ void completarTareas(vector<Tarea> & tareas) {
         buscarTarea(tareas, t, seleccionados);
     }
 
-    for(auto & t: seleccionados) {
-        cout<<"i: "<<t.i<<" gi: "<<t.g<<" di: "<<t.d<<endl;
+    cout<<"Las tareas seleccionados a realizarse son:"<<endl;
+    int t = 1;
+    for(auto & tarea: seleccionados) {
+        cout<<"Instante: "<<t++<<endl;
+        cout<<"i: "<<tarea.i<<" gi: "<<tarea.g<<" di: "<<tarea.d<<endl;
     }
 }
 
