@@ -1,3 +1,7 @@
+/*
+    PREGUNTA 6 b
+*/
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
